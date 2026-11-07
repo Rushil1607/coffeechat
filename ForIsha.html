@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hi Isha ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    overflow:hidden;
+    color:white;
+}
+
+/* CARD */
+
+.card{
+    width:65%;
+    max-width:850px;
+    min-height:420px;
+
+    padding:40px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+
+    border-radius:28px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.12);
+
+    position:relative;
+}
+
+/* TITLE */
+
+h1{
+    font-size:4rem;
+    margin-top:5px;
+}
+
+.subtitle{
+    font-size:1.7rem;
+    margin-top:15px;
+}
+
+/* BANTER */
+
+#banter{
+    margin-top:25px;
+    margin-bottom:25px;
+    font-size:1.2rem;
+    min-height:35px;
+}
+
+/* BUTTON AREA */
+
+#proposalArea{
+    position:relative;
+    width:100%;
+    height:140px;
+}
+
+button{
+
+    border:none;
+
+    border-radius:999px;
+
+    padding:18px 42px;
+
+    cursor:pointer;
+
+    font-size:1.2rem;
+
+    transition:.25s;
+}
+
+#yesBtn{
+    background:#4CAF50;
+    color:white;
+}
+
+#noBtn{
+    background:#ff4837;
+    color:white;
+}
+
+/* HEARTS */
+
+.heart{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    opacity:.55;
+
+    animation:floatUp linear forwards;
+}
+
+.back-btn{
+
+    position:absolute;
+
+    left:20px;
+
+    top:20px;
+
+    background:transparent;
+
+    color:white;
+
+    border:none;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    padding:0;
+
+    opacity:.85;
+}
+
+.back-btn:hover{
+
+    opacity:1;
+    text-decoration:underline;
+}
+
+@keyframes floatUp{
+
+    from{
+        transform:translateY(100vh);
+    }
+
+    to{
+        transform:translateY(-120px);
+    }
+}
+
+/* ACTIVITY OPTIONS */
+
+.options{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.option{
+
+    background:white;
+
+    color:#333;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    text-align:left;
+}
+
+.option input{
+    margin-right:8px;
+}
+
+/* GENERIC BUTTONS */
+
+.continue-btn,
+.time-btn,
+.send-btn{
+
+    margin:10px;
+
+    background:white;
+
+    color:#333;
+
+    font-size:1rem;
+}
+
+.continue-btn,
+.send-btn{
+
+    background:#4CAF50;
+
+    color:white;
+}
+
+.final{
+    margin-top:25px;
+    line-height:2;
+    font-size:1.2rem;
+}
+
+/* PAGES */
+
+.hidden{
+    display:none;
+}
+
+/* SIGNATURE */
+
+.signature{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:15px;
+
+    font-size:11px;
+
+    opacity:.75;
+
+    letter-spacing:.5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- PAGE 1 -->
+
+    <div id="proposalScreen">
+
+        <h1>Hi Isha! ❤️</h1>
+
+        <div class="subtitle">
+            Would you like to go on a date with me?
+        </div>
+
+        <div id="banter">
+            Choose wisely 😌
+        </div>
+
+        <div id="proposalArea">
+
+            <button id="yesBtn">
+                Yes ❤️
+            </button>
+
+            <button id="noBtn">
+                No 🙈
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PAGE 2 -->
+
+    <div id="activityScreen" class="hidden">
+
+        <h1 style="font-size:3rem;">
+            Yayyy! 🎉
+        </h1>
+
+        <div class="subtitle">
+            What sounds fun?
+        </div>
+
+        <div class="options">
+
+            <label class="option">
+                <input type="checkbox" value="Movie">
+                🎬 Movie
+            </label>
+
+            <label class="option">
+                <input type="checkbox" value="Cafe">
+                ☕ Cafe
+            </label>
+
+            <label class="option">
+                <input type="checkbox" value="Restaurant">
+                🍝 Restaurant
+            </label>
+
+            <label class="option">
+                <input type="checkbox" value="Bike Ride">
+                🏍️ Bike Ride
+            </label>
+
+            <label class="option">
+                <input type="checkbox" value="Long Drive">
+                🚗 Long Drive
+            </label>
+
+            <label class="option">
+                <input type="checkbox" value="Ice Cream">
+                🍦 Ice Cream
+            </label>
+
+            <label class="option">
+                <input type="checkbox" value="Bowling">
+                🎳 Bowling
+            </label>
+
+            <label class="option">
+                <input type="checkbox" value="Surprise Me">
+                🎁 Surprise Me
+            </label>
+
+        </div>
+
+        <button
+        class="continue-btn"
+        onclick="showDayOptions()">
+
+            Continue ❤️
+
+        </button>
+
+    </div>
+
+
+    <!-- PAGE 3 -->
+
+    <div id="dayScreen" class="hidden">
+       
+        <button
+    class="back-btn"
+    onclick="backToActivities()">
+
+    ← Back
+
+    </button>
+
+        <h1 style="font-size:3rem;">
+            Pick a Day 📅
+        </h1>
+
+        <div style="margin-top:40px;">
+
+            <button
+            class="time-btn"
+            onclick="showTimeOptions('Friday')">
+
+                Friday
+
+            </button>
+
+            <button
+            class="time-btn"
+            onclick="showTimeOptions('Saturday')">
+
+                Saturday
+
+            </button>
+
+            <button
+            class="time-btn"
+            onclick="showTimeOptions('Sunday')">
+
+                Sunday
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PAGE 4 -->
+
+    <div id="timeScreen" class="hidden">
+
+        <button
+    class="back-btn"
+    onclick="backToDay()">
+
+    ← Back
+
+</button>
+
+        <h1 style="font-size:3rem;">
+            Pick a Time 🕗
+        </h1>
+
+        <div
+            id="timeOptions"
+            style="margin-top:35px;">
+        </div>
+
+    </div>
+
+
+    <!-- PAGE 5 -->
+
+    <div
+        id="resultScreen"
+        class="hidden">
+    </div>
+
+</div>
+
+<div class="signature">
+    made with ❤️ by Rushil
+</div>
+
+<script>
+
+/* HEARTS */
+
+setInterval(()=>{
+
+    const heart =
+    document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left =
+    Math.random()*100 + "vw";
+
+    heart.style.fontSize =
+    (15 + Math.random()*25) + "px";
+
+    heart.style.animationDuration =
+    (4 + Math.random()*5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },9000);
+
+},800);
+
+
+/* ELEMENTS */
+
+const proposalArea =
+document.getElementById("proposalArea");
+
+const yesBtn =
+document.getElementById("yesBtn");
+
+const noBtn =
+document.getElementById("noBtn");
+
+const banter =
+document.getElementById("banter");
+
+
+let selectedActivities = [];
+let selectedDay = "";
+let selectedTime = "";
+let escapeCount = 0;
+
+const messages = [
+
+    "Nice try 😜",
+    "Almost 😂",
+    "Wrong one 🙈",
+    "The green button looks better ❤️",
+    "Catch me first 😎",
+    "Still no 😆",
+    "Try harder 🤭",
+    "You keep missing 👀",
+    "Team Yes 😌",
+    "Not that button 😂"
+
+];
+
+
+/* INITIAL BUTTON PLACEMENT */
+
+function setupButtons(){
+
+    const areaWidth =
+    proposalArea.clientWidth;
+
+    yesBtn.style.position = "absolute";
+    noBtn.style.position = "absolute";
+
+    const gap = 25;
+
+    const totalWidth =
+        yesBtn.offsetWidth +
+        noBtn.offsetWidth +
+        gap;
+
+    const startX =
+        (areaWidth-totalWidth)/2;
+
+    yesBtn.style.left =
+        startX + "px";
+
+    noBtn.style.left =
+        startX +
+        yesBtn.offsetWidth +
+        gap +
+        "px";
+
+    yesBtn.style.top = "20px";
+    noBtn.style.top = "20px";
+}
+
+window.onload =
+setupButtons;
+
+window.onresize =
+setupButtons;
+
+
+/* RUNAWAY BUTTON */
+
+proposalArea.addEventListener(
+"mousemove",
+(e)=>{
+
+    const rect =
+    noBtn.getBoundingClientRect();
+
+    const centerX =
+    rect.left + rect.width/2;
+
+    const centerY =
+    rect.top + rect.height/2;
+
+    const dx =
+    centerX - e.clientX;
+
+    const dy =
+    centerY - e.clientY;
+
+    const distance =
+    Math.hypot(dx,dy);
+
+    if(distance < 140){
+
+        const angle =
+        Math.atan2(dy,dx);
+
+        let newLeft =
+        noBtn.offsetLeft +
+        Math.cos(angle)*90;
+
+        let newTop =
+        noBtn.offsetTop +
+        Math.sin(angle)*90;
+
+        const maxLeft =
+        proposalArea.clientWidth -
+        noBtn.offsetWidth -
+        10;
+
+        const maxTop =
+        proposalArea.clientHeight -
+        noBtn.offsetHeight -
+        10;
+
+        if(newLeft<10)
+            newLeft=maxLeft-50;
+
+        if(newLeft>maxLeft)
+            newLeft=10;
+
+        if(newTop<10)
+            newTop=maxTop-30;
+
+        if(newTop>maxTop)
+            newTop=10;
+
+        noBtn.style.left =
+        newLeft + "px";
+
+        noBtn.style.top =
+        newTop + "px";
+
+        banter.innerHTML =
+        messages[
+            Math.floor(
+                Math.random() *
+                messages.length
+            )
+        ];
+
+        escapeCount++;
+
+        const grow =
+        Math.min(
+            1+(escapeCount*.03),
+            1.4
+        );
+
+        yesBtn.style.transform =
+        `scale(${grow})`;
+    }
+});
+
+
+/* YES BUTTON */
+
+yesBtn.addEventListener(
+"click",
+()=>{
+
+    document
+    .getElementById(
+        "proposalScreen"
+    )
+    .classList.add(
+        "hidden"
+    );
+
+    document
+    .getElementById(
+        "activityScreen"
+    )
+    .classList.remove(
+        "hidden"
+    );
+
+});
+
+
+/* ACTIVITIES */
+
+function showDayOptions(){
+
+    const checked =
+    document.querySelectorAll(
+        'input[type="checkbox"]:checked'
+    );
+
+    if(checked.length===0){
+
+        alert(
+            "Pick at least one date idea ❤️"
+        );
+
+        return;
+    }
+
+    selectedActivities =
+    [...checked]
+    .map(x=>x.value);
+
+    document
+    .getElementById(
+        "activityScreen"
+    )
+    .classList.add(
+        "hidden"
+    );
+
+    document
+    .getElementById(
+        "dayScreen"
+    )
+    .classList.remove(
+        "hidden"
+    );
+}
+
+
+/* DAY */
+
+function showTimeOptions(day){
+
+    selectedDay = day;
+
+    document
+    .getElementById(
+        "dayScreen"
+    )
+    .classList.add(
+        "hidden"
+    );
+
+    document
+    .getElementById(
+        "timeScreen"
+    )
+    .classList.remove(
+        "hidden"
+    );
+
+    const container =
+    document.getElementById(
+        "timeOptions"
+    );
+
+    let times = [];
+
+    if(day==="Friday"){
+
+        times = [
+
+            "6:00 PM",
+            "7:00 PM",
+            "8:00 PM",
+            "9:00 PM"
+        ];
+    }
+
+    if(
+        day==="Saturday" ||
+        day==="Sunday"
+    ){
+
+        times = [
+
+            "10:00 AM",
+            "12:00 PM",
+            "2:00 PM",
+            "4:00 PM",
+            "6:00 PM",
+            "8:00 PM"
+        ];
+    }
+
+    container.innerHTML = "";
+
+    times.forEach(time=>{
+
+        container.innerHTML += `
+
+            <button
+                class="time-btn"
+                onclick="finishDate('${day}','${time}')">
+
+                ${time}
+
+            </button>
+
+        `;
+    });
+}
+
+function backToActivities(){
+
+    document
+    .getElementById(
+        "dayScreen"
+    )
+    .classList.add(
+        "hidden"
+    );
+
+    document
+    .getElementById(
+        "activityScreen"
+    )
+    .classList.remove(
+        "hidden"
+    );
+}
+
+function backToDay(){
+
+    document
+    .getElementById(
+        "timeScreen"
+    )
+    .classList.add(
+        "hidden"
+    );
+
+    document
+    .getElementById(
+        "dayScreen"
+    )
+    .classList.remove(
+        "hidden"
+    );
+}
+
+function backToTime(){
+
+    document
+    .getElementById(
+        "resultScreen"
+    )
+    .classList.add(
+        "hidden"
+    );
+
+    showTimeOptions(
+        selectedDay
+    );
+}
+
+/* RESULT */
+
+function finishDate(day,time){
+
+    selectedDay = day;
+    selectedTime = time;
+
+    document
+    .getElementById(
+        "timeScreen"
+    )
+    .classList.add(
+        "hidden"
+    );
+
+    document
+    .getElementById(
+        "resultScreen"
+    )
+    .classList.remove(
+        "hidden"
+    );
+
+    document
+    .getElementById(
+        "resultScreen"
+    )
+    .innerHTML = `
+
+                <div class="final">
+
+                    <button
+            class="back-btn"
+            onclick="backToTime()">
+
+            ← Back
+
+        </button>
+
+            <h2 style="margin-bottom:20px;">
+                🎉 Date Locked In 🎉
+            </h2>
+
+            <p>
+                ❤️ <strong>Activities:</strong>
+                ${selectedActivities.join(", ")}
+            </p>
+
+            <p style="margin-top:12px;">
+                📅 <strong>Day:</strong>
+                ${day}
+            </p>
+
+            <p style="margin-top:12px;">
+                🕗 <strong>Time:</strong>
+                ${time}
+            </p>
+
+            <div style="margin-top:25px;">
+
+                <p style="margin-bottom:10px;">
+                    💌 Leave a message for Rushil
+                </p>
+
+                <textarea
+                    id="ishaMessage"
+                    placeholder="Anything you'd like to tell Rushil ❤️"
+                    style="
+                        width:80%;
+                        max-width:500px;
+                        height:80px;
+                        padding:12px;
+                        border:none;
+                        border-radius:12px;
+                        resize:none;
+                        font-size:1rem;
+                        font-family:'Segoe UI',sans-serif;
+                        outline:none;
+                    "
+                ></textarea>
+
+            </div>
+
+            <button
+                class="send-btn"
+                style="
+                    display:inline-block;
+                    margin-top:20px;
+                    background:#4CAF50;
+                    color:white;
+                    padding:14px 30px;
+                "
+                onclick="sendResponse()">
+
+                Confirm ❤️
+
+            </button>
+
+        </div>
+
+    `;
+}
+
+function sendResponse(){
+
+    const message =
+    document.getElementById(
+        "ishaMessage"
+    ).value;
+
+    const formData =
+    new FormData();
+
+    formData.append(
+        "entry.1579667420",
+        selectedActivities.join(", ")
+    );
+
+    formData.append(
+        "entry.278519979",
+        selectedDay
+    );
+
+    formData.append(
+        "entry.1208349531",
+        selectedTime
+    );
+
+    formData.append(
+        "entry.1502431663",
+        message
+    );
+
+    fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSe509QrDRxsuce9hZN9g6MxwvO3vUPN2OQ9mxfYPUX5KswVtA/formResponse",
+        {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+        }
+    );
+
+    document.getElementById(
+        "resultScreen"
+    ).innerHTML = `
+
+        <div class="final">
+
+            <h2>❤️ Thank You ❤️</h2>
+
+            <p style="margin-top:20px;">
+                Your response has been sent successfully.
+            </p>
+
+            <p style="margin-top:10px;">
+                Looking forward to it 😊
+            </p>
+
+        </div>
+
+    `;
+}
+
+</script>
+
+</body>
+</html>
